@@ -6,9 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "motion": "14.7.1",
     "next": "16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"
@@ -19,7 +24,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
-    "typescript": "^5"
+    "prettier": "3.9.10",
+    "typescript": "^6.0.3",
+    "vitest": "5.0.5"
   },
   "packageManager": "pnpm@11.11.0"
 }

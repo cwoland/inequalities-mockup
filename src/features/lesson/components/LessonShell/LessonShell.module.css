@@ -1,0 +1,85 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-height: 100dvh;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-4) var(--space-7);
+}
+
+.panel {
+  background: var(--color-surface);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-card);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5) var(--space-2);
+}
+
+.lesson {
+  color: var(--color-ink-muted);
+  font-size: var(--text-s);
+  font-weight: 600;
+}
+
+.step {
+  font-size: var(--text-l);
+  font-weight: 700;
+}
+
+.meters {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.meter,
+.streak {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+}
+
+.meter {
+  background: var(--color-primary-soft);
+}
+
+.meter svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-primary);
+}
+
+.streak {
+  background: var(--color-sun-soft);
+}
+
+.meterValue {
+  font-weight: 700;
+}
+
+.combo {
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-growth-soft);
+  color: var(--color-growth-dark);
+  font-size: var(--text-s);
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.stage {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

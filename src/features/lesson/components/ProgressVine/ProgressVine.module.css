@@ -1,0 +1,70 @@
+.vine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+  padding: var(--space-3) var(--space-5);
+}
+
+.leaves {
+  display: flex;
+  position: relative;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.leaves::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  left: 6px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-line);
+}
+
+.leafDone,
+.leafNow,
+.leafNext {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg);
+}
+
+.leafDone svg,
+.leafNow svg,
+.leafNext svg {
+  width: 24px;
+  height: 24px;
+}
+
+.leafDone svg {
+  fill: var(--color-growth);
+}
+
+.leafNow svg {
+  fill: var(--color-sun);
+  transform: scale(1.12);
+}
+
+.leafNext svg {
+  fill: var(--color-line);
+}
+
+.vein {
+  fill: none;
+  stroke: var(--color-bg);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.caption {
+  color: var(--color-ink-muted);
+  font-size: var(--text-s);
+  font-weight: 600;
+}

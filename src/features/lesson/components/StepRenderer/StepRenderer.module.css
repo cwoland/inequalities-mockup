@@ -1,0 +1,70 @@
+.mascotLine {
+  margin-bottom: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-m);
+  background: var(--color-surface);
+  color: var(--color-ink-muted);
+  box-shadow: var(--shadow-card);
+}
+
+.card,
+.rule {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-7) var(--space-5);
+  border-radius: var(--radius-l);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.rule {
+  border: 2px solid var(--color-growth);
+}
+
+.ruleBadge {
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-growth-soft);
+  color: var(--color-growth-dark);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cardTitle {
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.cardText {
+  max-width: 44ch;
+  color: var(--color-ink-muted);
+}
+
+.ruleAchievement {
+  color: var(--color-ink);
+}
+
+.cta {
+  min-width: 180px;
+  min-height: var(--tap-min);
+  margin-top: var(--space-2);
+  padding: 0 var(--space-6);
+  border: none;
+  border-radius: var(--radius-m);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--text-m);
+  font-weight: 700;
+  box-shadow: var(--shadow-raised);
+  cursor: pointer;
+}
+
+.cta:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--color-primary-dark);
+}
