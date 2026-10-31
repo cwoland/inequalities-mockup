@@ -1,4 +1,7 @@
 .mascotLine {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   margin-bottom: var(--space-3);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-m);
@@ -67,4 +70,13 @@
 .cta:active {
   transform: translateY(3px);
   box-shadow: 0 1px 0 var(--color-primary-dark);
+}
+
+.mascotLine svg {
+  flex-shrink: 0;
+}
+.taskCount {
+  margin-bottom: var(--space-3);
+  color: var(--color-ink-muted);
+  font-size: var(--text-s);
 }

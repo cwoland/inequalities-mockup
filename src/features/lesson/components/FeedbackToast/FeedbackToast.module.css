@@ -21,8 +21,8 @@
 }
 
 .text {
-  flex: 1;
-  min-width: 140px;
+  flex: 1 1 140px;
+  min-width: 0;
 }
 
 .title {
@@ -38,17 +38,17 @@
 .drops {
   font-size: var(--text-xl);
   font-weight: 700;
-  color: var(--color-growth-dark);
+  color: var(--color-ink);
 }
 
 .next {
   min-width: 140px;
   min-height: var(--tap-min);
-  padding: 0 var(--space-5);
+  padding: var(--space-2) var(--space-5);
   border: none;
   border-radius: var(--radius-m);
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-surface);
   font-weight: 700;
   box-shadow: var(--shadow-raised);
   cursor: pointer;

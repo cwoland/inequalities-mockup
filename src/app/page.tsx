@@ -1,4 +1,8 @@
+'use client';
+
 import Link from 'next/link';
+import { useLessonProgress } from '@/features/lesson/useLessonProgress';
+import { visibleStreak } from '@/features/lesson/lessonProgress';
 import { lessons } from '@/mocks/lessons';
 import { stageLabels, student } from '@/mocks/student';
 import styles from './page.module.css';
@@ -21,16 +25,21 @@ function Stars({ earned }: { earned: number }) {
 }
 
 export default function HomePage() {
+  const progress = useLessonProgress();
+  const streakDays = visibleStreak(progress, student.streakDays);
+
   return (
     <main className={styles.page}>
       <header className={styles.header}>
         <div>
           <p className={styles.hello}>Привет, {student.name}!</p>
-          <p className={styles.helloSub}>{student.grade} класс · {stageLabels[student.stage]}</p>
+          <p className={styles.helloSub}>
+            {student.grade} класс · {stageLabels[student.stage]}
+          </p>
         </div>
         <ul className={styles.counters}>
           <li className={styles.counter}>
-            <span className={`${styles.counterValue} num`}>{student.drops}</span>
+            <span className={`${styles.counterValue} num`}>{streakDays}</span>
             <span className={styles.counterLabel}>дней подряд</span>
           </li>
         </ul>
@@ -45,15 +54,28 @@ export default function HomePage() {
               <p className={styles.badge}>{lesson.grades}</p>
               <h2 className={styles.cardTitle}>{lesson.title}</h2>
               <p className={styles.cardText}>{lesson.subtitle}</p>
+              {lesson.slug === 'inequalities' && progress !== null ? (
+                <p className={styles.badge}>В твоем саду: {progress.gardenItem}</p>
+              ) : null}
               <div className={styles.cardFoot}>
-                <Stars earned={lesson.stars} />
+                <Stars earned={
+                  lesson.slug === 'inequalities' && progress !== null
+                    ? progress.bestStars
+                    : lesson.stars
+                } />
                 <span className={`${styles.minutes} num`}>{lesson.minutes} мин.</span>
               </div>
 
               {lesson.available ? (
-                <Link className={styles.cta} href={`/lesson/${lesson.slug}`}>Начать</Link>
+                <Link className={styles.cta} href={`/lesson/${lesson.slug}`}>
+                  {lesson.slug === 'inequalities' && progress !== null 
+                    ? 'Пройти ещё раз'
+                    : 'Начать'}
+                </Link>
               ) : (
-                <span className={styles.ctaLocked} aria-disabled="true">Скоро</span>
+                <span className={styles.ctaLocked} aria-disabled="true">
+                  Скоро
+                </span>
               )}
             </article>
           </li>

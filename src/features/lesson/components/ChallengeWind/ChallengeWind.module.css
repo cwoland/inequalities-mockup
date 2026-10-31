@@ -1,0 +1,191 @@
+.panel {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  padding: var(--space-5);
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-l);
+  background: var(--color-primary-soft);
+}
+
+.heading {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eyebrow {
+  color: var(--color-primary-dark);
+  font-size: var(--text-s);
+}
+
+.title {
+  color: var(--color-primary-dark);
+  font-size: var(--text-l);
+  font-weight: 700;
+}
+
+.clock {
+  display: grid;
+  justify-items: end;
+  flex-shrink: 0;
+}
+
+.clockLabel {
+  color: var(--color-primary-dark);
+  font-size: 12px;
+}
+
+.time {
+  color: var(--color-primary-dark);
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.landscape {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+.moon {
+  position: absolute;
+  top: 4px;
+  right: 12%;
+  width: 30px;
+  height: 30px;
+  border: 6px solid var(--color-surface);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+.wind {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 72px;
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.35;
+  animation: drift 5s ease-in-out infinite;
+}
+
+.panel[data-strength='breeze'] .wind {
+  opacity: 0.5;
+  animation-duration: 3.5s;
+}
+
+.panel[data-strength='gust'] .wind {
+  opacity: 0.65;
+  animation-duration: 2s;
+}
+
+.panel[data-paused='true'] .wind {
+  animation-play-state: paused;
+}
+
+.fence {
+  position: absolute;
+  right: 15%;
+  bottom: 8px;
+  left: 15%;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  transform-origin: center bottom;
+}
+
+.fence::before,
+.fence::after {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-soil);
+  content: '';
+}
+
+.fence::before {
+  top: 10px;
+}
+
+.fence::after {
+  top: 26px;
+}
+
+.post {
+  z-index: 1;
+  width: 10px;
+  border-radius: 5px 5px 0 0;
+  background: var(--color-soil-dark);
+}
+
+.shaking {
+  animation: wobble 650ms ease-in-out;
+}
+
+.ground {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-growth-dark);
+}
+
+.message {
+  color: var(--color-primary-dark);
+  font-size: var(--text-s);
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(-12px);
+  }
+
+  50% {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(-2deg);
+  }
+
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wind,
+  .shaking {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel {
+    padding: var(--space-4);
+  }
+
+  .fence {
+    right: 8%;
+    left: 8%;
+  }
+}

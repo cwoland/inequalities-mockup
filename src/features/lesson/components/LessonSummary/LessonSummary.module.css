@@ -94,3 +94,16 @@
   box-shadow: var(--shadow-raised);
   cursor: pointer;
 }
+.reward,
+.report {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-m);
+  width: 100%;
+  background: var(--color-growth-soft);
+  text-align: left;
+}
+.report {
+  background: var(--color-bg);
+}

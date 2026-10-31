@@ -22,10 +22,22 @@ body {
 h1,
 h2,
 h3,
+h4,
 p,
 ul,
 ol {
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+button,
+label {
+  overflow-wrap: anywhere;
 }
 
 ul,
@@ -34,7 +46,10 @@ ol {
   list-style: none;
 }
 
-button {
+button,
+input,
+select,
+textarea {
   font: inherit;
   color: inherit;
 }
@@ -50,9 +65,13 @@ a,
   touch-action: manipulation;
 }
 
+svg {
+  max-width: 100%;
+}
+
 :focus-visible {
   outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .num {
@@ -66,5 +85,6 @@ a,
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

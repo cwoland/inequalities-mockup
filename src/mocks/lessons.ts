@@ -13,7 +13,7 @@ export const lessons: LessonCard[] = [
     slug: 'inequalities',
     title: 'Больше, меньше или равно',
     subtitle: 'Знаки <, > и = и неравенства с окошком',
-    grades: '3–4 класс',
+    grades: '3 класс',
     minutes: 12,
     stars: 0,
     available: true,
